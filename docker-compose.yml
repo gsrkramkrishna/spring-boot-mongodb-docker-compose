@@ -1,0 +1,13 @@
+version: "3"
+services:
+  emp-database:
+    image: mongo
+    container_name: "emp-database"
+    ports:
+      - 27017:27017
+  emp:
+    image: gsrkramkrishna/employee-service:1.0
+    ports:
+      - 8080:8080
+    links:
+      - emp-database

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.gsrk.employee.model.Employee;
 
 @Repository
-public interface EmployeeRepository extends MongoRepository<Employee, String> {
-
+public interface EmployeeRepository extends MongoRepository<Employee, Integer> {
+	
 }

@@ -1,6 +1,6 @@
 package com.gsrk.employee;
 
-import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,8 +15,7 @@ public class EmployeeServiceApplication {
 	
 	
 	@Bean
-	public Random getRandom() {
-		return new Random();
+	public AtomicInteger getAtomicInteger() {
+		return new AtomicInteger();
 	}
-
 }

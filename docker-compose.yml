@@ -1,13 +1,29 @@
 version: "3"
 services:
   emp-database:
-    image: mongo
-    container_name: "emp-database"
+    image: mongo:4.0
+    container_name: "employee-database"
     ports:
       - 27017:27017
-  emp:
+    volumes:
+      - /c/data/:/data/db
+  emp.service1:
     image: gsrkramkrishna/employee-service:1.0
+    container_name: "employee-service1"
+    hostname: "emp.service1.com"
     ports:
-      - 8080:8080
+      - 8080
+    environment:
+      - employee.service.container.id:101
+    links:
+      - emp-database
+  emp.service2:
+    image: gsrkramkrishna/employee-service:1.0
+    container_name: "employee-service2"
+    hostname: "emp.service2.com"
+    ports:
+      - 8080
+    environment:
+      - employee.service.container.id:102
     links:
       - emp-database

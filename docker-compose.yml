@@ -14,7 +14,7 @@ services:
     ports:
       - 8080
     environment:
-      - employee.service.container.id:101
+      - employee.service.container.id=101
     links:
       - emp-database
   emp.service2:
@@ -24,6 +24,6 @@ services:
     ports:
       - 8080
     environment:
-      - employee.service.container.id:102
+      - employee.service.container.id=102
     links:
       - emp-database

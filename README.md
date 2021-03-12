@@ -15,7 +15,7 @@ docker push gsrkramkrishna/employee-service:1.0
 docker-compose up -d
 <br>
 <br>
-docker build -f DockerfileNginx .
+docker build -f DockerfileNginx -t nginx .
 <br>
 <br>
 docker network ls

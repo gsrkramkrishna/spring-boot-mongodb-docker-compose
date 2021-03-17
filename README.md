@@ -15,6 +15,12 @@ docker push gsrkramkrishna/employee-service:1.0
 docker-compose up -d
 <br>
 <br>
-docker run -p 80:80 --network employee-service_default --name emp-service-nginx-lb nginx
+docker build -f DockerfileNginx -t nginx .
+<br>
+<br>
+docker network ls
+<br>
+<br>
+docker run -p 80:80 --network "use the network name using the above command" --name emp-service-nginx-lb nginx
 <br>
 <br>

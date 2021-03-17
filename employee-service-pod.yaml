@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emp-service-pod
+  labels:
+    name: emp-service-pod
+    app:  emp-service-app
+spec:
+  containers:
+  - name: emp-service-pod
+    image: gsrkramkrishna/employee-service:1.0
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8080

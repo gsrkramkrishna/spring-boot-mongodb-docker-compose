@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-service-deployment
+  labels:
+    name: employee-service-deployment
+    app:  emp-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+        name: emp-service-pod
+        app:  emp-service-app
+  template:
+    metadata:
+      name: emp-service-pod
+      labels:
+        name: emp-service-pod
+        app:  emp-service-app
+    spec:
+      containers:
+        - name: emp-service-pod
+          image: gsrkramkrishna/employee-service:1.0
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+            

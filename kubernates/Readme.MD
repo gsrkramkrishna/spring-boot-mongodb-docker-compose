@@ -17,7 +17,7 @@ kubectl get configMap
 
 **Create Secret for Mongo**
 **Note: Use only if required username and password. I have not used it.**
-<br><br>.
+<br><br>
 kubectl apply -f mongo-secret.yaml
 <br><br>
 kubectl get secret
@@ -40,6 +40,7 @@ kubectl get service
 kubectl apply -f emplyee-without-env-deployment.yaml
 <br><br>
 **Note: the below service creates the load balancer. In local machine host name is localhost.**
+<br><br>
 kubectl apply -f employee-service.yaml
 <br><br>
 kubectl get deployment

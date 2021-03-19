@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-service
+spec:
+  selector:
+    matchLabels:
+      app: employee-service
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: employee-service
+    spec:
+      containers:
+      - name: employee-service
+        image: gsrkramkrishna/employee-service:1.0
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - name: http
+          containerPort: 8080
+        env:
+          - name: MONGO_DB
+            valueFrom:
+              configMapKeyRef:
+                key: database
+                name: mongo-conf
+          - name: MONGO_HOST
+            valueFrom:
+              configMapKeyRef:
+                key: host
+                name: mongo-conf
